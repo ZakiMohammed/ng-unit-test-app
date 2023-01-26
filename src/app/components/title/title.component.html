@@ -1,5 +1,8 @@
 <div class="pb-2 mb-4" *ngIf="title">
   <div class="content">
-    <h4 class="has-text-grey">{{title}}</h4>
+    <h4 class="has-text-grey">
+      <fa-icon [icon]="icon" *ngIf="icon" class="pr-1"></fa-icon>
+      {{title}}
+    </h4>
   </div>
 </div>

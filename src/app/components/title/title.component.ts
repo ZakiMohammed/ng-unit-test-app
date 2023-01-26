@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-title',
@@ -7,4 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class TitleComponent {
   @Input() title = '';
+  @Input() icon: IconProp | null = null;
 }

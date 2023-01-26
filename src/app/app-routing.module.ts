@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormComponent } from './components/form/form.component';
-import { HomeComponent } from './components/home/home.component';
-import { PostsComponent } from './components/posts/posts.component';
+import { FormComponent } from './pages/form/form.component';
+import { HomeComponent } from './pages/home/home.component';
+import { PostViewComponent } from './pages/post-view/post-view.component';
+import { PostsComponent } from './pages/posts/posts.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, data: { title: '' } },
-  { path: 'register', component: FormComponent, data: { title: 'Register' } },
-  { path: 'posts', component: PostsComponent, data: { title: 'Posts' } },
+  { path: '', component: HomeComponent },
+  { path: 'register', component: FormComponent, data: { title: 'Register', icon: 'truck' } },
+  { path: 'posts', component: PostsComponent, data: { title: 'Posts', icon: 'image' } },
+  { path: 'posts/:id', component: PostViewComponent, data: { title: 'Post Details', icon: 'image' } },
   { path: '**', component: HomeComponent }
 ];
 

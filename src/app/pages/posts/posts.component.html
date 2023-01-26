@@ -1,0 +1,31 @@
+<table class="table is-striped is-hoverable is-fullwidth">
+  <caption></caption>
+  <thead>
+    <tr>
+      <th style="width: 5%">#</th>
+      <th>Title</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of posts">
+      <td>
+        <figure class="image is-48x48">
+          <img class="is-smooth" [src]="'https://picsum.photos/id/' + (post.id + 50) + '/100/100'" [alt]="post.title" />
+        </figure>
+      </td>
+      <td>{{ post.title | titlecase }}</td>
+      <td>
+        <a [routerLink]="['/posts/' + post.id]" class="button is-primary is-light is-pulled-right">
+          <fa-icon icon="arrow-right"></fa-icon>
+        </a>
+      </td>
+    </tr>
+    <tr *ngIf="!posts">
+      <td colspan="3">
+        <fa-icon icon="cog" class="pr-1" animation="spin"></fa-icon>
+        Loading please wait...
+      </td>
+    </tr>
+  </tbody>
+</table>

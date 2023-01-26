@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -11,10 +12,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BannerComponent } from './components/banner/banner.component';
-import { HomeComponent } from './components/home/home.component';
-import { FormComponent } from './components/form/form.component';
-import { PostsComponent } from './components/posts/posts.component';
 import { TitleComponent } from './components/title/title.component';
+import { PostViewComponent } from './pages/post-view/post-view.component';
+import { HomeComponent } from './pages/home/home.component';
+import { FormComponent } from './pages/form/form.component';
+import { PostsComponent } from './pages/posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +28,9 @@ import { TitleComponent } from './components/title/title.component';
     FormComponent,
     PostsComponent,
     TitleComponent,
+    PostViewComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

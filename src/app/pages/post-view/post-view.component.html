@@ -1,0 +1,28 @@
+<div class="columns" *ngIf="post">
+  <div class="column is-5">
+    <figure class="image">
+      <img
+        class="is-smooth"
+        [src]="'https://picsum.photos/id/' + (post.id + 50) + '/1200/600'"
+        [alt]="post.title"
+        height="400"
+        width="800" />
+    </figure>
+  </div>
+  <div class="column">
+    <div class="content is-normal mb-3">
+      <h1>{{ post.title | titlecase }}</h1>
+      <p>{{ post.body }}</p>
+    </div>
+    <div>
+      <a [routerLink]="['/posts/']" class="button is-primary is-light">
+        <fa-icon icon="arrow-left"></fa-icon>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!post">
+  <fa-icon icon="cog" class="pr-1" animation="spin"></fa-icon>
+  Loading please wait...
+</div>
