@@ -1,0 +1,39 @@
+<nav class="navbar break-when-tablet" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" [routerLink]="['/']">
+      <b class="has-text-primary">Unit Test App</b>
+    </a>
+
+    <button
+      role="button"
+      class="navbar-burger"
+      [ngClass]="{ 'is-active': showMenu }"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarBasicExample"
+      (click)="toggleMenu()">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu" [ngClass]="{ 'is-active': showMenu }">
+    <div class="navbar-end">
+      <a
+        class="navbar-item"
+        [routerLink]="['/']"
+        [routerLinkActive]="'has-text-primary'"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="hideMenu()">
+        <fa-icon icon="home" class="mr-2"></fa-icon> Home
+      </a>
+      <a class="navbar-item" [routerLink]="['/register']" [routerLinkActive]="'has-text-primary'" (click)="hideMenu()">
+        <fa-icon icon="file-pen" class="mr-2"></fa-icon> Register
+      </a>
+      <a class="navbar-item" [routerLink]="['/posts']" [routerLinkActive]="'has-text-primary'" (click)="hideMenu()">
+        <fa-icon icon="list" class="mr-2"></fa-icon> Posts
+      </a>
+    </div>
+  </div>
+</nav>

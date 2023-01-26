@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, RoutesRecognized } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ut-mark-2';
+  title = '';
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof RoutesRecognized) {
+        const route = event.state.root.firstChild;
+        this.title = (route?.data as any).title;
+      }
+    })
+  }
 }
