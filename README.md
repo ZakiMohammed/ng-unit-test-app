@@ -1,27 +1,60 @@
-# UtMark2
+# Sandbox: Unit Test Mark 2
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
+Sandbox project for unit test session's sample project
 
-## Development server
+# Init
+```
+ng new ut-mark-2
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Dependencies
 
-## Code scaffolding
+## Bulma
+```
+npm i bulma
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Add `bulma.min.css` to `angular.json` file:
+```
+{
+    "styles": [
+        "node_modules/bulma/css/bulma.min.css",
+        "src/styles.scss"
+    ],
+}
+```
 
-## Build
+## FontAwesome
+```
+npm install @fortawesome/fontawesome-svg-core
+npm install @fortawesome/free-solid-svg-icons
+npm install @fortawesome/angular-fontawesome@latest
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Import `FontAwesomeModule` to `AppModule`:
+```
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
 
-## Running unit tests
+...
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+@NgModule({
+  declarations: [
+    ...
+  ],
+  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas, far);
+  }
+}
+```
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Usage:
+```
+<fa-icon icon="coffee"></fa-icon>
+```
