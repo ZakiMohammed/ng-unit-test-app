@@ -11,6 +11,7 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class PostViewComponent implements OnInit, OnDestroy {
   id = 0;
+  errorMessage = '';
   post: Post | null = null;
   postSubscription: Subscription = Subscription.EMPTY;
 
@@ -28,7 +29,12 @@ export class PostViewComponent implements OnInit, OnDestroy {
 
   getPost() {
     if (!isNaN(this.id)) {
-      this.postSubscription = this.postService.get(this.id).subscribe(post => (this.post = post));
+      this.postSubscription = this.postService.get(this.id).subscribe({
+        next: post => (this.post = post),
+        error: () => this.errorMessage = 'Something went wrong'
+      });
+    } else {
+      this.errorMessage = 'Oops! Post not found'
     }
   }
 }

@@ -9,13 +9,14 @@ import { PostService } from 'src/app/services/post.service';
   styleUrls: ['./posts.component.scss'],
 })
 export class PostsComponent implements OnInit, OnDestroy {
+  errorMessage = '';
   posts: Post[] | null = null;
   postsSubscription: Subscription = Subscription.EMPTY;
 
   constructor(private postService: PostService) {}
 
   ngOnInit(): void {
-    this.getPosts()
+    this.getPosts();
   }
 
   ngOnDestroy(): void {
@@ -23,6 +24,11 @@ export class PostsComponent implements OnInit, OnDestroy {
   }
 
   getPosts() {
-    this.postsSubscription = this.postService.getAll().subscribe(posts => (this.posts = posts));
+    this.postsSubscription = this.postService
+      .getAll()
+      .subscribe({
+        next: posts => (this.posts = posts),
+        error: () => this.errorMessage = 'Something went wrong'
+      });
   }
 }

@@ -1,4 +1,11 @@
-<table class="table is-striped is-hoverable is-fullwidth">
+<article class="message is-danger" *ngIf="errorMessage">
+  <div class="message-body">
+    <fa-icon icon="robot" size="lg" class="pr-1"></fa-icon>
+    {{ errorMessage }}
+  </div>
+</article>
+
+<table class="table is-striped is-hoverable is-fullwidth" *ngIf="!errorMessage">
   <caption></caption>
   <thead>
     <tr>

@@ -26,3 +26,10 @@
   <fa-icon icon="cog" class="pr-1" animation="spin"></fa-icon>
   Loading please wait...
 </div>
+
+<article class="message is-danger" *ngIf="errorMessage">
+  <div class="message-body">
+    <fa-icon icon="robot" size="lg" class="pr-1"></fa-icon>
+    {{ errorMessage }}
+  </div>
+</article>
