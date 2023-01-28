@@ -18,7 +18,12 @@
     <tr *ngFor="let post of posts">
       <td>
         <figure class="image is-48x48">
-          <img class="is-smooth" [src]="'https://picsum.photos/id/' + (post.id + 50) + '/100/100'" [alt]="post.title" />
+          <img
+            class="is-smooth"
+            [src]="'https://picsum.photos/id/' + (post.id + 50) + '/100/100'"
+            [alt]="post.title"
+            height="48"
+            width="48" />
         </figure>
       </td>
       <td>{{ post.title | titlecase }}</td>
