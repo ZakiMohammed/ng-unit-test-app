@@ -2,7 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router, RouterEvent, RoutesRecognized } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { combineLatest, of, ReplaySubject } from 'rxjs';
+import { ReplaySubject } from 'rxjs';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
