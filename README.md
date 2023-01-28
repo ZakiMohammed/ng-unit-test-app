@@ -89,3 +89,38 @@ Usage:
 <fa-icon icon="coffee"></fa-icon>
 <fa-icon [icon]="['fab', 'angular']" size="lg"></fa-icon>
 ```
+
+## Add Environment Files
+```
+ng g environments
+```
+
+## Add Karma Config File
+```
+ng generate config karma
+```
+
+Update `karma.conf.js` and add below properties to `coverageReporter`
+```
+coverageReporter: {
+  reporters: [
+    ...
+    { type: 'lcovonly' },
+  ],
+  check: {
+    global: {
+      statements: 80,
+      branches: 80,
+      functions: 80,
+      lines: 80,
+    },
+  },
+  watermarks: {
+    statements: [50, 80],
+    functions: [50, 80],
+    branches: [50, 80],
+    lines: [50, 80],
+  },
+},
+```
+The `watermarks`, 50 to 90 shows color between RED and YELLOW

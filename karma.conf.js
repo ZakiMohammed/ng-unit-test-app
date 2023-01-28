@@ -47,7 +47,7 @@ module.exports = function (config) {
         lines: [50, 80],
       },
     },
-    reporters: ['progress', 'kjhtml', 'coverage'],
+    reporters: ['progress', 'kjhtml'],
     browsers: ['Chrome'],
     restartOnFileChange: true,
   });
