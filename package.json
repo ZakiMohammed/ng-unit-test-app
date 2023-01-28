@@ -8,7 +8,8 @@
     "build-prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "test-coverage": "ng test --no-watch --code-coverage"
+    "test-coverage": "ng test --code-coverage",
+    "test-coverage-no-watch": "ng test --no-watch --code-coverage"
   },
   "private": true,
   "dependencies": {

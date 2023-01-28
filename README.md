@@ -1,8 +1,34 @@
-# Sandbox: Unit Test Mark 2
+# Unit Test App - Angular
 
-Sandbox project for unit test session's sample project
+Angular project for unit test session's sample.
 
-# Init
+Link: https://ng-unit-test.netlify.app/
+
+# Setup Project
+```
+git clone https://github.com/ZakiMohammed/ng-unit-test-app.git
+
+npm i
+npm start
+```
+
+# Test Project
+
+1. Test the project
+```
+npm test
+npm run test
+```
+
+2. Test the project with code coverage
+```
+npm run test-coverage
+
+// without watching
+npm run test-coverage-no-watch
+```
+
+# Initialize
 ```
 ng new ut-mark-2
 ```
@@ -28,6 +54,7 @@ Add `bulma.min.css` to `angular.json` file:
 ```
 npm install @fortawesome/fontawesome-svg-core
 npm install @fortawesome/free-solid-svg-icons
+npm install @fortawesome/free-brands-svg-icons
 npm install @fortawesome/angular-fontawesome@latest
 ```
 
@@ -36,25 +63,29 @@ Import `FontAwesomeModule` to `AppModule`:
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 
 ...
 
 @NgModule({
-  declarations: [
+  declarations: [...],
+  imports: [
     ...
+    FontAwesomeModule
   ],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [...],
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIconPacks(fas, far);
+    library.addIconPacks(fas, far, fab);
   }
 }
+
 ```
 
 Usage:
 ```
 <fa-icon icon="coffee"></fa-icon>
+<fa-icon [icon]="['fab', 'angular']" size="lg"></fa-icon>
 ```
